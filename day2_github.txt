@@ -1,0 +1,501 @@
+   60  cd rare_10k_108k/
+   61  ls
+   62  cd alpha_rare/
+   63  ls
+   64  ../
+   65  cd ../
+   66  ls
+   67  collate_alpha.py -i alpha_rare/ -o alpha_collated
+   68  ls
+   69  cd alpha_collated/
+   70  ls
+   71  pwd
+   72  cd ../../
+   73  ls
+   74  cd ../
+   75  ls *.biom
+   76  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping2 -t rep_set.tre -m ~/Desktop/mapping2.txt
+   77  pwd
+   78  ls
+   79  cd arare_mapping2/
+   80  ls
+   81  cd alpha_div_collated/
+   82  ls
+   83  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -o ./alpha_compare_chao1
+   84  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 108000 -o ./alpha_compare_chao1_2
+   85  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 10000 -o ./alpha_compare_chao1_PD10000
+   86  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 10000 -o alpha_compare_chao1_PD10000/
+   87  head chao1.txt
+   88  head ~/Desktop/mapping2.txt 
+   89  clear
+   90  ls
+   91  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 1000 -o alpha_compare_chao1_PD1000
+   92  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 8000 -o alpha_compare_chao1_PD8000
+   93  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 80000 -o alpha_compare_chao1_PD80000
+   94  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description  -o alpha_compare_chao1
+   95  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 80000 -o alpha_compare_chao1_PD80000
+   96  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 50000 -o alpha_compare_chao1_test
+   97  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 90000 -o alpha_compare_chao1_test
+   98  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 100000 -o alpha_compare_chao1_test
+   99  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 500 -o alpha_compare_chao1_test
+  100  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 5000 -o alpha_compare_chao1_test
+  101  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 8000 -o alpha_compare_chao1_test
+  102  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 9000 -o alpha_compare_chao1_test
+  103  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -d 100000 -o alpha_compare_chao1_test
+  104  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description  -o alpha_compare_chao1_test
+  105  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping3 -t rep_set.tre -m ~/Desktop/mapping2.txt -e 108000
+  106  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping3 -t rep_set.tre -m ~/Desktop/mapping2.txt -e 80000
+  107  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping3 -t rep_set.tre -m ~/Desktop/mapping2.txt -e 10000
+  108  cd ../
+  109  cd ../
+  110  ls *.biom
+  111  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping3 -t rep_set.tre -m ~/Desktop/mapping2.txt -e 108000
+  112  alpha_rarefaction.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o arare_mapping4 -t rep_set.tre -m ~/Desktop/mapping2.txt -e 80000
+  113  ls
+  114  cd arare_mapping4
+  115  l
+  116  ls
+  117  cd alpha_div_collated/
+  118  ls
+  119  compare_alpha_diversity.py -i chao1.txt -m ~/Desktop/mapping2.txt -c Description -o alpha_compare_chao1
+  120  pwd
+  121  cd ../../
+  122  ls
+  123  ls *.biom
+  124  jackknifed_beta_diversity.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o jackknifed_beta_diversity108k/ -e 108000 -m ~/Desktop/mapping2.txt -t rep_set.tre 
+  125  jackknifed_beta_diversity.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o jackknifed_beta_diversity/ -m ~/Desktop/mapping2.txt -t rep_set.tre 
+  126  jackknifed_beta_diversity.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o jackknifed_beta_diversity10000/ -e 10000 -m ~/Desktop/mapping2.txt -t rep_set.tre 
+  127  pwd
+  128  ls
+  129  dissimilarity_mmtx_stats.py -i jackknifed_beta_diversity10000/unweighted_unifrac/rare_dm/ -o unweighted_unifrac_stats
+  130  dissimilarity_mtx_stats.py -i jackknifed_beta_diversity10000/unweighted_unifrac/rare_dm/ -o unweighted_unifrac_stats
+  131  make_distance_boxplots.py -m ~/Desktop/mapping2.txt -o unweighted_distance_boxplots -d unweighted_unifrac_stats/means.txt -f Description --save_raw_data -g png
+  132  normalize_by_copy_number.py
+  133  python -c "from biom import __version__; print __version__"
+  134  predict_metagenomes.py
+  135  categorize_by_function.py
+  136  pip install
+  137  pip install --upgreade pip
+  138  pip install --upgreade pip python
+  139  pip install numpy
+  140  pip install biom-format
+  141  pip install biom-format==2.1.5
+  142  pip install h5py
+  143  git clone git://github.com/picrust/picrust.git picrust
+  144  ls
+  145  cd picrust/
+  146  ls
+  147  cd ~/Downloads/
+  148  ls *.gz
+  149  gunzip picrust-1.1.1.tar.gz 
+  150  ls
+  151  ls picrust*
+  152  /Users/juliayuecui cd ~/Documents/PCB_16S_071917/
+  153  ls
+  154  cd ~/Documents/PCB_16S_071917/
+  155  ls
+  156  cd reference/
+  157  ls
+  158  cd open_ref_OTU_picking_rev_strand_match/
+  159  ls
+  160  cd picrust
+  161  pwd
+  162  cd ../../
+  163  ls
+  164  cd ../
+  165  ls
+  166  cd picrust/
+  167  ls
+  168  cd picrust_test_data/
+  169  ls
+  170  gunzip *.gz
+  171  ls
+  172  cd ../
+  173  ls
+  174  pip install
+  175  pip install .
+  176  normalize_by_copy_number.py
+  177  which picrust
+  178  pwd
+  179  export PATH=$PATH:/Users/juliayuecui/Documents/PCB_16S_071917/picrust
+  180  which picrust
+  181  picrust
+  182  which PICRUSt-1.1.1.dev0
+  183  predict_metagenomes.py
+  184  cd ../
+  185  ls
+  186  cd reference/
+  187  ls
+  188  cd open_ref_OTU_picking_rev_strand_match/
+  189  ls
+  190  ls *.biom
+  191  normalize_by_copy_number.py -i otu_table_mc2_w_tax_no_pynast_failures_org_mappingfile.biom -o normalized_otus.biom -g 13_8
+  192  cd ~/Downloads/
+  193  ls
+  194  ls *.zip
+  195  cd ~/Desktop
+  196  ls
+  197  cd fishtaco-master/
+  198  ls
+  199  cat README.rst 
+  200  setup.py
+  201  ./setup.py
+  202  python setup.py install
+  203  test_fishtaco.py
+  204  cd ../
+  205  ip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC
+  206  pip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC
+  207  cd ~/Downloads/
+  208  ls *.gz
+  209  mv fishtaco-1.1.1.tar.gz ~/Desktop
+  210  cd ~/Desktop/
+  211  ls
+  212  tar -xzf fishtaco-1.1.1.tar.gz
+  213  cd fishtaco-1.1.1
+  214  ls
+  215  python setup.py install
+  216  test_fishtaco.py
+  217  pip install -U fishtaco
+  218  test_fishtaco.py
+  219  python --version 
+  220  join_paired_ends.py
+  221  macqiime
+  222  top
+  223  cd ~/Documents/
+  224  ls
+  225  cd PCB_16S_071917/
+  226  ls
+  227  cd 1st_try_JYC_slout_not_multiplexed/
+  228  ls
+  229  wc -l rep_set.fna
+  230  head rep_set.fna
+  231  wc rep_set.fna
+  232  cd Desktop/
+  233  ls *.fna
+  234  ls *.fasta
+  235  wc -l seqs.fna_rep_set_org.fasta 
+  236  cd ~/Documents/
+  237  ls
+  238  cd PCB_16S_071917/
+  239  ls
+  240  cd gg_13_8_otus/
+  241  ls
+  242  cd taxonomy/
+  243  ls
+  244  pwd
+  245  cd ../
+  246  ls
+  247  cd rep_set
+  248  ls
+  249  pwd
+  250  macqiime
+  251  cd ~/Documents/
+  252  ls
+  253  cd PCB_16S_071917/
+  254  LS
+  255  ls
+  256  pwd
+  257  export PATH=$PATH:/Users/juliayuecui/Documents/PCB_16S_071917
+  258  pick_otus.py
+  259  ?pick_otus.py
+  260  which macqiime
+  261  which python
+  262  export PATH=$PATH:/macqiime/anaconda/bin/pytho
+  263  export PATH=$PATH:/macqiime/anaconda/bin/python
+  264  which python
+  265  export PATH=$PATH:/usr/bin/macqiime
+  266  which macqiime
+  267  which python
+  268  pick_otus.py
+  269  join_paired_ends.py
+  270  exit
+  271  python --version
+  272  ls
+  273  mcqiime
+  274  macqiime
+  275  macqiime
+  276  which python3
+  277  export PATH=$PATH://usr/local/bin/python3
+  278  macqiime
+  279  pwd
+  280  cd ~/Documents/
+  281  cd PCB_16S_071917/
+  282  ls
+  283  cd 1st_try_JYC_slout_not_multiplexed/
+  284  ls
+  285  pick_otus.py -i seqs.fna
+  286  ls *.fna
+  287  python
+  288  cd /usr/local/bin/
+  289  ls
+  290  macqiime
+  291  sudo pythonselect 2.7
+  292  sudo pythonselect 2.7
+  293  sudo pythonselect 2.7
+  294  sudo python 2.7
+  295  macqiime
+  296  cd /macqiime/bin/python
+  297  which python
+  298  python --version
+  299  join_paired_ends.py
+  300  cd ~/Documents/
+  301  ls
+  302  cd PCB_16S_071917/
+  303  ls
+  304  cd reference/
+  305  ls
+  306  cd open_ref_OTU_picking_rev_strand_match/
+  307  LS
+  308  cd ../
+  309  ls
+  310  cd open_ref_OTU_picking
+  311  ls
+  312  assign_taxonomy.py -i rep_set.fna -m rdp -o test
+  313  git clone git://github.com/picrust/picrust.git picrust
+  314  conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda
+  315  history
+  316  run_fishtaco.py
+  317  pip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC
+  318  pip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC
+  319  pip install -U numpy scipy scikit-learn pandas statsmodels MUSiCC
+  320  python get-pip.py
+  321  python --verson
+  322  python
+  323  pwd
+  324  cd Applications
+  325  ls
+  326  cd Utilities/
+  327  ls
+  328  cd CitrixOnline/
+  329  ls
+  330  cd Desktop
+  331  cd ~/Desktop
+  332  ls
+  333  PWD
+  334  pwd
+  335  export PATH=$://Users/juliayuecui/Desktop/Python\ 3.6/
+  336  ls
+  337  which python
+  338  which Python
+  339  export PATH=$:/Users/juliayuecui/Desktop/Python\ 3.6/
+  340  which Python
+  341  which python
+  342  biom convert
+  343  biom
+  344  biom show-install-info
+  345  cd ../
+  346  ls
+  347  cd ../
+  348  ls
+  349  cd Volumes/
+  350  ls
+  351  ls
+  352  iime
+  353  cd Desktop
+  354  touch met.txt
+  355  say bye Kris
+  356  say have a nice weekend
+  357  say -h
+  358  say -v voice
+  359  say?
+  360  say -Princess hi Kris
+  361  say -Victoria hi Kris
+  362  say -v Good news
+  363  say -v hi Kris hi Kris hi Kris
+  364  say -v Good hi Kris hi Kris hi Kris
+  365  say -v Princess hi Kris hi Kris hi Kris
+  366  say -v Hysterical hi Kris hi Kris hi Kris
+  367  say -v Hysterical have a nice weekend good bye
+  368  say -v Good Sunny has a mac
+  369  say -v Good Sunny has a mac Julia has a mac too
+  370  say -v Good hello Julia how are you tonight
+  371  say -v Good hello meme hello meme hello meme emememememememememe
+  372  say -v Good meemee meemee meemee
+  373  say meemee meemee meemee
+  374  say mimi
+  375  say mimimimi
+  376  say -v Good Sunny has a mac
+  377  say -v Good Sunny has a mac Julia has a mac too
+  378  say -v histerical hi kris
+  379  say -v histerial hi kris
+  380  say -v 
+  381  say -v help
+  382  say -h
+  383  say -v Hysterical this is my world and this is my fight
+  384  say -v Bells this is my world and this is my fight
+  385  say -v Trinoids this is my world and this is my fight
+  386  say -v Zarvox this is my world and this is my fight
+  387  say -v Boing this is my world and this is my fight
+  388  say -v Bruce this is my world and this is my fight
+  389  say -v Anges this is my world and this is my fight
+  390  say -v Agnes this is my world and this is my fight
+  391  say -v AgnePrincess this my world and this is my fight
+  392  say -v Princess this my world and this is my fight
+  393  say -v Junior this my world and this is my fight
+  394  ls
+  395  cd ../../
+  396  ls
+  397  cd Volumes/
+  398  ls
+  399  ls
+  400  ls
+  401  ls
+  402  ls
+  403  ls
+  404  ls
+  405  ls
+  406  ls
+  407  cd Seagate\ Backup\ Plus\ Drive/
+  408  ls
+  409  ls
+  410  cd Cindy_PBDE_RNAseq/
+  411  ls
+  412  ls *.bam
+  413  wc -l CV_CO*.sorted.bam
+  414  say agreed
+  415  pwd
+  416  cd Downloads/
+  417  pwd
+  418  cd Desktop
+  419  ls
+  420  cd Fishtaco_visualization
+  421  ls
+  422  pwd
+  423  cd Fshtaco_visualization/
+  424  ls
+  425  mv FishTacoPlot_taxanomyD120vsD1.txt FishTacoPlot_taxa_D120vsD1.tab
+  426  ls *.tab
+  427  pwd
+  428  mkdir FishTaco_Rplot
+  429  mv *.tab ./FishTaco_Rplot/
+  430  cd FishTaco_Rplot/
+  431  ls
+  432  ls
+  433  pwd
+  434  ls
+  435  mv Julia_mod_ko00121_fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_multi_taxa.txt ko00121_fishtaco_main_output_SCORE_wilcoxon_ASSESSMENT_multi_taxa2.tab
+  436  pwd
+  437  ls
+  438  mv ko00121_fishtaco_out_main_output_SCORE_wilcoxon_ASSESSMENT_multi_taxa.tab ../
+  439  ls
+  440  pwd
+  441  ls
+  442  cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library
+  443  ls
+  444  cd FishTacoPlot
+  445  ls
+  446  pwd
+  447  cp *.* ~/Desktop/FishTacoPlot
+  448  ls
+  449  cp help ~/Desktop/FishTacoPlot
+  450  cp html ~/Desktop/FishTacoPlot
+  451  cd html
+  452  ls
+  453  cd ../
+  454  cd INDEX
+  455  cat INDEX
+  456  ls
+  457  cd Meta
+  458  ls
+  459  cd ../
+  460  cd R
+  461  ls
+  462  cd FishTacoPlot
+  463  LS
+  464  ls
+  465  cat FishTacoPlot
+  466  ls
+  467  cat FishTacoPlot.rdx
+  468  cat FishTacoPlot.rdb
+  469  s
+  470  pwd
+  471  cd .././
+  472  ls
+  473  cd ../../
+  474  ls
+  475  pwd
+  476  cd /Library/Frameworks/R.framework/Versions/3.2/Resources/library
+  477  ls
+  478  cd FishTacoPlot/
+  479  ls
+  480  cat DESCRIPTION 
+  481  cd Meta
+  482  ls
+  483  cd ../
+  484  cd R
+  485  ls
+  486  cd ../
+  487  ls
+  488  cd ~/Desktop/
+  489  ls
+  490  cd Fshtaco_visualization/
+  491  ls
+  492  cd FishTaco_Rplot/
+  493  ls
+  494  say -v Good motifs
+  495  pwd
+  496  ls
+  497  cd Desktop
+  498  cat NONCODEv5_human_hg38_lncRNA.gtf 
+  499  cd Downloads/
+  500  ls *.gtf
+  501  pwd
+  502  git config --global user.name "Julia Cui"
+  503  git config --global user.email "juliayuecui2011@gmail.com"
+  504  gif config --blobal color.ui "auto"
+  505  git config --blobal color.ui "auto"
+  506  git config --global color.ui "auto"
+  507  git config --list 
+  508  history day2_notes_github.txt
+  509  history > day2_notes_github.txt
+  510  git config --global core.editor "nano"
+  511  git config --help
+  512  mkdir planets
+  513  cd planets
+  514  pwd
+  515  git init
+  516  ls -a
+  517  git status
+  518  nano mars.txt
+  519  ls
+  520  cat mars.txt 
+  521  git status
+  522  touch venus.txt
+  523  ls
+  524  # working directory; git add --> staged files in staging area --> git commit -> repository long term version control
+  525  git status
+  526  git add mars.txt
+  527  git status
+  528  git commit -m "Added first line of notes about Mars"
+  529  cat mars.txt
+  530  git status
+  531  nano mars.txt
+  532  nano venus.txt
+  533  git add mars.txt
+  534  git add venus.txt
+  535  git -status
+  536  gut status
+  537  git status
+  538  git commit -m "Added first line of notes about Mars; add second line to mars.txt; add first line to venus.txt""
+"
+  539  git commit -m "Added first line of notes about Mars; add second line to mars.txt; add first line to venus.txt"
+  540  git status
+  541  git log
+  542  nano venus.txt
+  543  git status
+  544  git diff venus.txt 
+  545  git log
+  546  git diff HEAD venus.txt 
+  547  git diff HEAD~1 venus.txt
+  548  git diff HEAD~2 venus.txt
+  549  git status
+  550  git add venus.txt
+  551  git status
+  552  git diff --help
+  553  git log
+  554  git diff 098fb mars.txt
+  555  git diff da79d mars.txt
+  556  git diff --staged HEAD~1
+  557  git diff --staged HEAD~2
+  558  git log --oneline
+  559  history > day2_github.txt
